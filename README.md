@@ -1,3 +1,11 @@
 Final Task Frontend React
 
-Membuat frontend untuk Mini Online Store menyesuaikan API dari Final Task Backend 
+ 🗂️ Judul:
+Mini Online Store
+
+🕒 Durasi:
+3 hari pengerjaan mini project
+
+Fitur MVP:
+Transaksi sampai checkout
+CRUD Product
