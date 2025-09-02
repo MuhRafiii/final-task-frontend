@@ -79,7 +79,7 @@ export function Orders() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-black"
             >
               <option value="total">Total</option>
               <option value="createdAt">Created Date</option>
@@ -90,7 +90,7 @@ export function Orders() {
             <select
               value={orderBy}
               onChange={(e) => setOrderBy(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-black"
             >
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
@@ -101,7 +101,7 @@ export function Orders() {
             <select
               value={limit}
               onChange={(e) => setLimit(parseInt(e.target.value))}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-black"
             >
               <option selected>choose</option>
               <option value="5">5</option>
@@ -110,24 +110,23 @@ export function Orders() {
             </select>
           </div>
         </div>
-        {sortBy === "total" && (
-          <div className="flex gap-2 mb-4">
-            <input
-              type="number"
-              placeholder="Min Total"
-              value={minTotal}
-              onChange={(e) => setMinTotal(e.target.value)}
-              className="w-full p-2 border rounded"
-            />
-            <input
-              type="number"
-              placeholder="Max Price"
-              value={maxTotal}
-              onChange={(e) => setMaxTotal(e.target.value)}
-              className="w-full p-2 border rounded"
-            />
-          </div>
-        )}
+
+        <div className="flex gap-2 mb-4">
+          <input
+            type="number"
+            placeholder="Min Total"
+            value={minTotal}
+            onChange={(e) => setMinTotal(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+          <input
+            type="number"
+            placeholder="Max Price"
+            value={maxTotal}
+            onChange={(e) => setMaxTotal(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+        </div>
 
         {loading ? (
           <div className="flex justify-between">
@@ -139,17 +138,16 @@ export function Orders() {
         )}
 
         {orders.length === 0 ? (
-          <p className="text-gray-600">You have no orders yet.</p>
+          <p className="text-gray-600 dark:text-gray-400">
+            You have no orders yet.
+          </p>
         ) : (
           <div className="space-y-6">
             {orders.map((order) => (
-              <div
-                key={order.id}
-                className="border rounded p-4 shadow-sm bg-white"
-              >
+              <div key={order.id} className="border rounded p-4 shadow-sm">
                 <div className="flex justify-between items-center mb-2">
                   <h2 className="font-semibold text-lg">Order #{order.id}</h2>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
                     {new Date(order.createdAt).toLocaleString()}
                   </p>
                 </div>
@@ -160,17 +158,17 @@ export function Orders() {
                       key={item.id}
                       className="flex justify-between text-sm text-gray-700"
                     >
-                      <span>
+                      <span className="dark:text-gray-300">
                         {item.name} × {item.quantity}
                       </span>
-                      <span>
+                      <span className="dark:text-gray-300">
                         {formatRupiah(itemPrice(item.name) * item.quantity)}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                <div className="text-right font-bold text-blue-600">
+                <div className="text-right font-bold text-blue-600 dark:text-blue-400">
                   Total: {formatRupiah(order.total)}
                 </div>
               </div>

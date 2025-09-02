@@ -101,7 +101,7 @@ export default function Products() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-black"
             >
               <option value="price">Price</option>
               <option value="name">Name</option>
@@ -112,7 +112,7 @@ export default function Products() {
             <select
               value={orderBy}
               onChange={(e) => setOrderBy(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-black"
             >
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
@@ -123,7 +123,7 @@ export default function Products() {
             <select
               value={limit}
               onChange={(e) => setLimit(parseInt(e.target.value))}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-black"
             >
               <option selected>choose</option>
               <option value="2">2</option>
@@ -133,24 +133,23 @@ export default function Products() {
             </select>
           </div>
         </div>
-        {sortBy === "price" && (
-          <div className="flex gap-2 mb-4">
-            <input
-              type="number"
-              placeholder="Min Price"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-              className="w-full p-2 border rounded"
-            />
-            <input
-              type="number"
-              placeholder="Max Price"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-              className="w-full p-2 border rounded"
-            />
-          </div>
-        )}
+
+        <div className="flex gap-2 mb-4">
+          <input
+            type="number"
+            placeholder="Min Price"
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+          <input
+            type="number"
+            placeholder="Max Price"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+        </div>
 
         {loading ? (
           <p className="text-center">Loading...</p>
@@ -219,7 +218,7 @@ export default function Products() {
                             onClick={() =>
                               handleDecrease(cartItem.id, cartItem.quantity)
                             }
-                            className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
+                            className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer dark:bg-gray-600 dark:hover:bg-gray-500"
                             disabled={cartLoading}
                           >
                             –
@@ -231,7 +230,7 @@ export default function Products() {
                             onClick={() =>
                               handleIncrease(cartItem.id, cartItem.quantity)
                             }
-                            className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
+                            className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer dark:bg-gray-600 dark:hover:bg-gray-500"
                             disabled={cartLoading}
                           >
                             +

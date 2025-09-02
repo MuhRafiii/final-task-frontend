@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/Navbar";
 import { api } from "@/services/api";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,58 +32,58 @@ export default function Login() {
   };
 
   return (
-    <>
-      <Navbar />
-      <div className="flex items-center justify-center min-h-screen p-4">
-        <form
-          onSubmit={handleLogin}
-          className="w-full max-w-sm bg-white dark:bg-zinc-900 p-6 rounded shadow space-y-4"
-        >
-          <h1 className="text-2xl font-bold text-center">Login</h1>
+    <div className="flex items-center justify-center min-h-screen p-4">
+      <form
+        onSubmit={handleLogin}
+        className="w-full max-w-sm bg-white dark:bg-zinc-900 p-6 rounded shadow space-y-4"
+      >
+        <h1 className="text-2xl font-bold text-center">Login</h1>
 
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              autoComplete="email"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            autoComplete="email"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              placeholder="Enter Password"
-              value={password}
-              autoComplete="password"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+        <div className="space-y-2">
+          <Label htmlFor="password">Password</Label>
+          <Input
+            id="password"
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            autoComplete="password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
 
-          {errorMsg && (
-            <p className="text-red-500 text-sm text-center">{errorMsg}</p>
-          )}
+        {errorMsg && (
+          <p className="text-red-500 text-sm text-center">{errorMsg}</p>
+        )}
 
-          <div className="flex flex-col items-center gap-2">
-            <Link
-              to="/register"
-              className="text-sm text-center underline text-blue-700"
-            >
-              Don't have an account? Register
-            </Link>
-            <Button type="submit" className="w-full">
-              Login
-            </Button>
-          </div>
-        </form>
-      </div>
-    </>
+        <div className="flex flex-col items-center gap-2">
+          <Button type="submit" className="w-full">
+            Login
+          </Button>
+        </div>
+        <p className="text-sm">
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            className="text-sm text-center underline text-blue-700"
+          >
+            Register
+          </Link>
+        </p>
+      </form>
+    </div>
   );
 }

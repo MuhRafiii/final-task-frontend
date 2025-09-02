@@ -70,7 +70,9 @@ export function Cart() {
         )}
 
         {cart.length === 0 ? (
-          <p className="text-gray-600">Your cart is empty.</p>
+          <p className="text-gray-600 dark:text-gray-400">
+            Your cart is empty.
+          </p>
         ) : (
           <div className="space-y-4">
             {cart.map((item) => {
@@ -82,18 +84,22 @@ export function Cart() {
                 >
                   <div className="flex flex-col gap-4">
                     <h2 className="font-semibold">{item.name}</h2>
-                    <img src={item.picture} alt={item.name} className="w-20" />
+                    <img
+                      src={item.picture}
+                      alt={item.name}
+                      className="w-20 rounded"
+                    />
                     <div className="flex flex-col">
-                      <p className="text-sm text-black font-semibold">
+                      <p className="text-sm text-black font-semibold dark:text-white">
                         Price:{" "}
-                        <span className="text-gray-600 font-normal">
+                        <span className="text-gray-600 font-normal dark:text-gray-400">
                           {formatRupiah(item.price)}{" "}
                         </span>
                         x {item.quantity}
                       </p>
-                      <p className="text-sm text-black font-semibold">
+                      <p className="text-sm text-black font-semibold dark:text-white">
                         Total:{" "}
-                        <span className="text-gray-600 font-normal">
+                        <span className="text-gray-600 font-normal dark:text-gray-400">
                           {formatRupiah(item.price * item.quantity)}
                         </span>
                       </p>
@@ -103,7 +109,7 @@ export function Cart() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleDecrease(item.id, item.quantity)}
-                      className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer dark:bg-gray-600 dark:hover:bg-gray-500"
                       disabled={cartLoading}
                     >
                       –
@@ -113,7 +119,7 @@ export function Cart() {
 
                     <button
                       onClick={() => handleIncrease(item.id, item.quantity)}
-                      className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer dark:bg-gray-600 dark:hover:bg-gray-500"
                       disabled={cartLoading}
                     >
                       +
@@ -121,7 +127,7 @@ export function Cart() {
 
                     <button
                       onClick={() => removeItem(item.id)}
-                      className="ml-4 px-3 py-1 bg-red-500 text-white rounded cursor-pointer hover:bg-red-600"
+                      className="ml-4 px-3 py-1 bg-red-500 text-white rounded cursor-pointer hover:bg-red-600 dark:bg-red-700"
                       disabled={cartLoading}
                     >
                       Remove
@@ -136,10 +142,7 @@ export function Cart() {
                 Total: {formatRupiah(totalPrice)}
               </p>
               {errorMsg && <p className="text-red-500">{errorMsg}</p>}
-              <Button
-                onClick={handleCheckout}
-                className="w-25 bg-blue-500 hover:bg-blue-600"
-              >
+              <Button onClick={handleCheckout}>
                 {loading ? "Processing..." : "Checkout"}
               </Button>
             </div>

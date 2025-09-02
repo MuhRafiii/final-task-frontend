@@ -13,15 +13,21 @@ export function Dashboard() {
         </p>
       </div>
       <div className="w-2/3 mx-auto grid grid-cols-2 gap-8">
-        <div className="w-full bg-blue-500 text-center text-lg space-y-4 p-8 rounded-lg shadow-2xl">
+        <div className="w-full bg-sky-500 dark:bg-sky-600 text-center text-lg space-y-4 p-8 rounded-lg shadow-2xl">
           <p className="text-white">Lihat point kamu?</p>
-          <Button variant="outline">
+          <Button
+            variant="outline"
+            className="dark:bg-gray-900 dark:hover:bg-gray-700"
+          >
             <Link to="/transfer-point">Transfer Point</Link>
           </Button>
         </div>
-        <div className="w-full bg-green-500 text-center text-lg space-y-4 p-8 rounded-lg shadow-2xl">
+        <div className="w-full bg-green-500 dark:bg-green-600 text-center text-lg space-y-4 p-8 rounded-lg shadow-2xl">
           <p className="text-white">Mulai belanja?</p>
-          <Button variant="outline">
+          <Button
+            variant="outline"
+            className="dark:bg-gray-900 dark:hover:bg-gray-700"
+          >
             <Link to="/products">Lanjut Belanja</Link>
           </Button>
         </div>

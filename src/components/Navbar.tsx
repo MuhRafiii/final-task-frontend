@@ -29,19 +29,10 @@ export function Navbar() {
       )}
 
       <div className="flex gap-4">
-        {isAuthenticated ? (
+        {isAuthenticated && (
           <Button onClick={logout} variant="destructive">
             Logout
           </Button>
-        ) : (
-          <div className="flex gap-4">
-            <Button asChild variant="outline" className="flex items-end">
-              <Link to="/login">Login</Link>
-            </Button>
-            <Button asChild variant="outline" className="flex items-end">
-              <Link to="/register">Register</Link>
-            </Button>
-          </div>
         )}
         <ThemeToggle />
       </div>
