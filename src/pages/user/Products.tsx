@@ -90,9 +90,9 @@ export default function Products() {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-sky-300 via-cyan-100 to-sky-300">
       <Navbar />
-      <div className="max-w-10/12 mx-auto p-4">
+      <div className="max-w-10/12 mx-auto p-4 text-gray-700">
         <h1 className="text-4xl font-bold mb-4 text-center">Products</h1>
 
         <div className="grid grid-cols-3 gap-4 mb-6">
@@ -101,7 +101,7 @@ export default function Products() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full p-2 border rounded dark:bg-black"
+              className="w-full bg-white p-2 border border-gray-300 rounded-md dark:bg-black"
             >
               <option value="price">Price</option>
               <option value="name">Name</option>
@@ -112,7 +112,7 @@ export default function Products() {
             <select
               value={orderBy}
               onChange={(e) => setOrderBy(e.target.value)}
-              className="w-full p-2 border rounded dark:bg-black"
+              className="w-full bg-white p-2 border border-gray-300 rounded-md dark:bg-black"
             >
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
@@ -123,7 +123,7 @@ export default function Products() {
             <select
               value={limit}
               onChange={(e) => setLimit(parseInt(e.target.value))}
-              className="w-full p-2 border rounded dark:bg-black"
+              className="w-full bg-white p-2 border border-gray-300 rounded-md dark:bg-black"
             >
               <option selected>choose</option>
               <option value="2">2</option>
@@ -140,14 +140,14 @@ export default function Products() {
             placeholder="Min Price"
             value={minPrice}
             onChange={(e) => setMinPrice(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full bg-white p-2 border border-gray-300 rounded-md"
           />
           <input
             type="number"
             placeholder="Max Price"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full bg-white p-2 border border-gray-300 rounded-md"
           />
         </div>
 
@@ -163,7 +163,7 @@ export default function Products() {
                   <DialogTrigger asChild>
                     <Card
                       onClick={() => setSelectedProduct(product)}
-                      className="cursor-pointer hover:shadow-md transition"
+                      className="cursor-pointer hover:shadow-md transition border-none"
                     >
                       <CardHeader>
                         <CardTitle>{product.name}</CardTitle>
@@ -172,7 +172,7 @@ export default function Products() {
                         <img
                           src={product.picture}
                           alt={product.name}
-                          className="w-50 h-50"
+                          className="w-50 h-50 rounded"
                         />
                         <p>
                           <span className="font-bold">Price: </span>
@@ -278,6 +278,6 @@ export default function Products() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

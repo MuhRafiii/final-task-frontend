@@ -70,16 +70,16 @@ export function Orders() {
   }, [sortBy, orderBy, minTotal, maxTotal, limit, page]);
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-sky-300 via-cyan-100 to-sky-300">
       <Navbar />
-      <div className="max-w-2/3 mx-auto p-4">
+      <div className="max-w-2/3 mx-auto p-4 text-gray-700">
         <div className="grid grid-cols-3 gap-4 mb-6">
           <div>
             <label className="block mb-1">Sort By</label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full p-2 border rounded dark:bg-black"
+              className="w-full bg-white p-2 border border-gray-300 rounded-md dark:bg-black"
             >
               <option value="total">Total</option>
               <option value="createdAt">Created Date</option>
@@ -90,7 +90,7 @@ export function Orders() {
             <select
               value={orderBy}
               onChange={(e) => setOrderBy(e.target.value)}
-              className="w-full p-2 border rounded dark:bg-black"
+              className="w-full bg-white p-2 border border-gray-300 rounded-md dark:bg-black"
             >
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
@@ -101,7 +101,7 @@ export function Orders() {
             <select
               value={limit}
               onChange={(e) => setLimit(parseInt(e.target.value))}
-              className="w-full p-2 border rounded dark:bg-black"
+              className="w-full bg-white p-2 border border-gray-300 rounded-md dark:bg-black"
             >
               <option selected>choose</option>
               <option value="5">5</option>
@@ -117,14 +117,14 @@ export function Orders() {
             placeholder="Min Total"
             value={minTotal}
             onChange={(e) => setMinTotal(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full bg-white p-2 border border-gray-300 rounded-md"
           />
           <input
             type="number"
             placeholder="Max Price"
             value={maxTotal}
             onChange={(e) => setMaxTotal(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full bg-white p-2 border border-gray-300 rounded-md"
           />
         </div>
 
@@ -144,7 +144,10 @@ export function Orders() {
         ) : (
           <div className="space-y-6">
             {orders.map((order) => (
-              <div key={order.id} className="border rounded p-4 shadow-sm">
+              <div
+                key={order.id}
+                className="bg-white border rounded-md p-4 shadow-sm"
+              >
                 <div className="flex justify-between items-center mb-2">
                   <h2 className="font-semibold text-lg">Order #{order.id}</h2>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -199,6 +202,6 @@ export function Orders() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

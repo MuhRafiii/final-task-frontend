@@ -57,9 +57,9 @@ export function Cart() {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-sky-300 via-cyan-100 to-sky-300">
       <Navbar />
-      <div className="max-w-3xl mx-auto p-4">
+      <div className="max-w-3xl mx-auto p-4 text-gray-700">
         {cartLoading ? (
           <div className="flex justify-between">
             <h1 className="text-2xl font-bold mb-4">🛒 Your Cart</h1>
@@ -80,7 +80,7 @@ export function Cart() {
               return (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between border p-4 rounded shadow-sm"
+                  className="flex items-center justify-between bg-white p-4 rounded-md shadow-sm"
                 >
                   <div className="flex flex-col gap-4">
                     <h2 className="font-semibold">{item.name}</h2>
@@ -142,13 +142,17 @@ export function Cart() {
                 Total: {formatRupiah(totalPrice)}
               </p>
               {errorMsg && <p className="text-red-500">{errorMsg}</p>}
-              <Button onClick={handleCheckout}>
+              <Button
+                variant="outline"
+                onClick={handleCheckout}
+                disabled={loading}
+              >
                 {loading ? "Processing..." : "Checkout"}
               </Button>
             </div>
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

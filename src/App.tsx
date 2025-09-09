@@ -11,6 +11,7 @@ import { OrdersByUser } from "./pages/admin/OrdersGroupBy";
 import AdminProducts from "./pages/admin/Products";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Home from "./pages/Home";
 import { Cart } from "./pages/user/Cart";
 import { Dashboard } from "./pages/user/Dashboard";
 import { Orders } from "./pages/user/Orders";
@@ -24,6 +25,9 @@ function App() {
         <OrderProvider>
           <BrowserRouter>
             <Routes>
+              {/* Public Routes */}
+              <Route path="/" element={<Home />} />
+
               {/* Auth Routes */}
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
@@ -80,7 +84,7 @@ function App() {
 
               {/* User Routes */}
               <Route
-                path="/"
+                path="/dashboard"
                 element={
                   <PrivateRoute requiredRole="user">
                     <Dashboard />

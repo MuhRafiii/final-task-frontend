@@ -54,15 +54,15 @@ export function TransferPoints() {
   };
 
   return (
-    <div className="">
+    <div className="min-h-screen bg-gradient-to-br from-sky-300 via-cyan-100 to-sky-300">
       <Navbar />
-      <div className="max-w-10/12 mx-auto flex justify-between">
+      <div className="max-w-10/12 mx-auto flex justify-between text-gray-700">
         <h1 className="text-3xl font-bold">Transfer Points</h1>
-        <p className="bg-gray-200 rounded-md text-gray-700 font-bold p-4 dark:bg-black dark:text-gray-200 dark:border-2">
+        <p className="bg-sky-50 rounded-md text-gray-700 font-bold p-4 dark:bg-black dark:text-gray-200 dark:border-2">
           <Coins className="w-5 h-5 text-yellow-500 inline" /> {point}
         </p>
       </div>
-      <div className="max-w-md mx-auto mt-10 p-6 rounded-xl shadow-md dark:border-2">
+      <div className="max-w-md bg-white mx-auto mt-10 p-6 rounded-xl shadow-md dark:border-2">
         <h2 className="text-xl font-bold mb-4">Transfer Points</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Receiver Email */}

@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/Navbar";
 import { api } from "@/services/api";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -41,78 +42,81 @@ export default function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4">
-      <form
-        onSubmit={handleRegister}
-        className="w-full max-w-sm bg-white text-center dark:bg-zinc-900 p-6 rounded shadow space-y-4"
-        encType="multipart/form-data"
-      >
-        <h1 className="text-2xl font-bold text-center">Register</h1>
+    <div className="min-h-screen bg-gradient-to-br from-sky-300 via-cyan-100 to-sky-300">
+      <Navbar />
+      <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-sky-300 via-cyan-100 to-sky-300">
+        <form
+          onSubmit={handleRegister}
+          className="w-full max-w-sm bg-white text-center dark:bg-zinc-900 p-6 rounded-md shadow space-y-4"
+          encType="multipart/form-data"
+        >
+          <h1 className="text-2xl font-bold text-center">Create Account</h1>
 
-        <div className="space-y-2">
-          <Label htmlFor="name">Username</Label>
-          <Input
-            id="name"
-            type="text"
-            placeholder="Enter username"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
+          <div className="space-y-2">
+            <Label htmlFor="name">Username</Label>
+            <Input
+              id="name"
+              type="text"
+              placeholder="Enter username"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="password">Password</Label>
-          <Input
-            id="password"
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">Password</Label>
+            <Input
+              id="password"
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="picture">Profile Image</Label>
-          <Input
-            id="picture"
-            type="file"
-            accept="image/*"
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              if (file) setPictureFile(file);
-            }}
-          />
-        </div>
+          <div className="space-y-2">
+            <Label htmlFor="picture">Profile Image</Label>
+            <Input
+              id="picture"
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) setPictureFile(file);
+              }}
+            />
+          </div>
 
-        {errorMsg && (
-          <p className="text-red-500 text-sm text-center">{errorMsg}</p>
-        )}
+          {errorMsg && (
+            <p className="text-red-500 text-sm text-center">{errorMsg}</p>
+          )}
 
-        <Button type="submit" className="w-full">
-          Register
-        </Button>
+          <Button type="submit" className="w-full">
+            Register
+          </Button>
 
-        <p className="text-sm">
-          Already have an account? {""}
-          <Link to="/login" className="text-sm underline text-blue-700">
-            Login here
-          </Link>
-        </p>
-      </form>
+          <p className="text-sm">
+            Already have an account? {""}
+            <Link to="/login" className="text-sm underline text-blue-700">
+              Login
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
