@@ -125,7 +125,7 @@ export default function Home() {
         </h2>
         {isAuthenticated ? (
           <div className="w-2/3 mx-auto my-12 grid grid-cols-2 gap-8 text-gray-700">
-            <div className="w-full bg-radial from-blue-200 from-40% to-violet-400 text-center text-lg space-y-4 p-8 rounded-lg shadow-2xl">
+            <div className="w-full bg-radial from-blue-200 from-40% to-blue-400 text-center text-lg space-y-4 p-8 rounded-lg shadow-2xl">
               <p className="font-semibold text-gray-700">Lihat point kamu?</p>
               <Button
                 variant="outline"
@@ -152,7 +152,7 @@ export default function Home() {
             </p>
             <Button
               variant="outline"
-              onClick={() => navigate("/auth/register")}
+              onClick={() => navigate("/register")}
               className="font-semibold hover:bg-gray-100 text-black hover:text-sky-500"
             >
               Daftar Sekarang
