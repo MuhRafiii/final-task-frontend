@@ -9,3 +9,5 @@ Mini Online Store
 Fitur MVP:
 Transaksi sampai checkout
 CRUD Product
+
+Backend Repository: https://github.com/MuhRafiii/final-task-backend
